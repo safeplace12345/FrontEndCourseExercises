@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals-3-quiz</title>
+
+</head>
+
+<body>
+    <div class="container"></div>
+    <script>
+        // 1) Type of function?
+        // a) This function adds number 7 to any digits passed into it. but only numbers
+        //b) it is declared directly into the javascript memory as an object.
+        function add7(num) {
+            if (num === undefined) {
+                return undefined;
+            } else
+            //c) function Expression
+                return num + 7;
+        }
+        // c) Function called here with num 
+        console.log(add7(7));
+
+        // 2) Type of function?
+        // a) This function multiplies two numbers passed in as numA and numB
+        // c) It is declared under a variable called multiply for easier storage and reference in the memory
+        const multiply = function (numA, numB) {
+            if (numA === undefined && numB === undefined) {
+                return undefined
+            } else
+                //d) function Expression
+                return numA * numB;
+        }
+
+        //function call
+        console.log(multiply(3, 3))
+        // 3) Type of function?
+        //a) This function turn a string into capitalized format.
+        // b) It has been declared using the ES6 syntax of arrow functions
+        let capitalize = (str) => {
+            //c) function Expression
+            return str.replace(str[0], str[0].toUpperCase()) + str.substring();
+            //  let words = str.split(' ')
+            //         .map(obj => 
+            //         obj[0].toUpperCase() + obj.substr(1)
+            //         ).join(' ')
+
+        }
+        console.log(capitalize('hello man how are you today'))
+
+
+        // 4) Type of function?
+        //a) returns the last character at the -1 index
+        function lastLetter(str) {
+            //b) function Expression
+            return str.substr(-1)
+        }
+
+        console.log(lastLetter('You'))
+    </script>
+</body>
+
+</html>
