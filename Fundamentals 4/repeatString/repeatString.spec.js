@@ -1,7 +1,7 @@
 const repeatString = require('./repeatString')
 
 describe('repeatString', function() {
-  it('repeats the string', function() {
+  xit('repeats the string', function() {
     expect(repeatString('hey', 3)).toEqual('heyheyhey');
   });
   xit('repeats the string many times', function() {

@@ -1,7 +1,7 @@
 const sumAll = require('./sumAll')
 
 describe('sumAll', function() {
-  it('sums numbers within the range', function() {
+  xit('sums numbers within the range', function() {
     expect(sumAll(1, 4)).toEqual(10);
   });
   xit('works with large numbers', function() {

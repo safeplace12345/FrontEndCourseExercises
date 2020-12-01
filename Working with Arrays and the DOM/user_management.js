@@ -1,3 +1,5 @@
+console.clear();
+
 function createUser(firstName, surname, age) {
   return {
     firstName: firstName,
@@ -11,24 +13,44 @@ function getUserInfo(user) {
   return `${user.firstName} ${user.surname}, ${user.age} years old`;
 }
 
-function displayUsers() {
-  const user_list = document.querySelector("#user_list");
+function displayUsers(listID, filtered_users) {
+  const user_list = document.getElementById(listID);
+  // user_list.innerHTML = "";
+
+  filtered_users.forEach(function (user, index) {
+    const list_item = document.createElement("li");
+    const delete_button = document.createElement("button");
+    delete_button.addEventListener("click", function () {
+      users.splice(index, 1);
+      displayUsers();
+    });
+    delete_button.innerText = "Delete";
+    list_item.innerText = getUserInfo(user);
+    user_list.appendChild(list_item);
+    list_item.appendChild(delete_button);
+  });
+
+
 
   //for (let i = 0; i < users.length; i++){
+  /*
   for (let user of users) {
     const list_item = document.createElement("li");
     list_item.innerText = getUserInfo(user); // or users[i]
     user_list.appendChild(list_item);
-  }
+  } */
 }
 
 function addUser() {
-  let name = document.getElementById("name").value;
-  users.push(createUser(name, null, null));
+  const name = document.getElementById("name").value;
+  const surname = document.getElementById("surname").value;
+  const age = document.getElementById("age").value;
+  users.push(createUser(name, surname, age));
   displayUsers();
 }
 
-// console.log( createUser("John", "Doe", 21 ) );
+const submitButton = document.getElementById("submit_button");
+submitButton.addEventListener("click", addUser);
 
 let users = [
   createUser("John", "Doe", 21),
@@ -38,7 +60,13 @@ let users = [
   createUser("Ben", "Duwer", 66)
 ];
 
-console.log(users);
-console.log(getUserInfo(users[1]));
-console.log(getUserInfo(users[3]));
-displayUsers();
+const fill = users.filter(function (user) {
+  return user.age < 18;
+})
+const take = users.filter(function (user) {
+  return user.age >= 18;
+})
+console.log(fill);
+
+displayUsers('adult_list', take)
+displayUsers('youngsters_list', fill);
