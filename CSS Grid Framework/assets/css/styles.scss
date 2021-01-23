@@ -1,0 +1,123 @@
+$bd-2 : 2px solid gray;
+$flex-basis: 20%;
+$success : green;
+$light : lightgray;
+@mixin font-fam($col) {
+    color: $col;
+    font-family: cursive 'Segoe UI',
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+}
+@mixin f-size ($size){
+    font-size: $size;
+}
+@mixin  max-display($m-width , $height){
+    max-width: width;
+    max-height:height;
+}
+@mixin flex ($dir , $wrap ,$justify){
+    display: flex;
+    flex-direction: $dir;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $justify;
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: $success;
+}
+h1{
+    color: $success;
+    font-size: 1.3rem
+}
+.container-max{
+    @include max-display(100vh,100vh);
+    @include flex(row,wrap,center);
+}
+.container-min{
+    background-color:$light;
+    display: inline-block;
+    width: 80%;
+    @include max-display(auto, auto);
+    border: $bd-2;
+    padding: 4px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    .col-ch-2{
+        flex-basis: $flex-basis;
+        border: $bd-2;
+        padding: ($flex-basis - 19%);
+        margin: 5px;
+    }
+}
+fieldset{
+    padding: 5px 5px;
+    legend{
+        h1{
+            @include f-size(1.5rem);
+        }
+        h2{
+            @include f-size(1.3rem)
+        }
+        h3{
+            @include f-size(1rem)
+        }
+        h4{
+            @include f-size(0.8rem)
+        }
+        h5{
+            @include f-size(0.7rem)
+        }
+        h6{
+            @include f-size(0.5rem)
+        }
+    }
+    label{
+        @include f-size(1.1);
+        @include font-fam($success);
+    }
+
+}
+ .form-input {
+     @include f-size(0.7);
+     @include font-fam(red);
+     width: 200px;
+     height: 30px;
+    }
+    .form-input-textarea{
+        display: block;
+       height: 50px;
+       border-radius: 10px 4px 1px 2px;
+    }
+    
+ .form-input:hover , button:hover{
+     cursor: pointer;
+ }
+ .btn{
+     padding: 2px 10px;
+     width: 100px;
+     margin: 0 auto;
+ }
+ .btn-success{
+     background-color: white;
+     border: 1px green solid;
+     color: green;
+ }
+ .copy{
+     display: fixed;
+     bottom: 0px;
+     right: 0px;
+     @include f-size(0.3rem)
+ }
+
+
+
