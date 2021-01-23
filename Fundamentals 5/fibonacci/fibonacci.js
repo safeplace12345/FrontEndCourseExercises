@@ -1,24 +1,16 @@
+// F(0) = 0;
+// F(1) = 1;
+// F(N) = F(N-1) + F(N-2) for N > 1
+
+
 const fibonacci = function(num) {
-  if(num < 0 || num === !Number){
-    return 'OOPS'
-  }else
-  if(Number){
-    num = Number(num)
-  }
-  let start,end,i,result;
-  start = 1
-  end = 1
-console.log(typeof num)
-  for(i = 1 ; i < num ; i++){
-    //   console.log(i)
-   result = start + end;
-   start = end;
-   end = result;
-  }
-  return start;
+ if(num <= 1){
+   return num;
+ }
+  return fibonacci(num -1) + fibonacci(num -2) ;
 }
-console.log(fibonacci('8'))
+console.log(fibonacci(10))
 
 
 
-module.exports = fibonacci
+// module.exports = fibonacci
