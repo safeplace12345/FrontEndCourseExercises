@@ -1,0 +1,6 @@
+*{
+    text-transform: capitalize;
+}
+.addbookform{
+    display: none;
+}
