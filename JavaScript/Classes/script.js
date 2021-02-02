@@ -26,34 +26,21 @@ function deleteBook(book) {
 }
 add.addEventListener('click', (e) => {
     e.preventDefault();
-    let newBook = new makeBook(title.value, author.value, numOfPages.value, status.value)
-    // Add book i.d
-//    let ObjectToDelete = addBook(newBook);
-    appendBooks()
+    let newBook = new MakeBook(title.value, author.value, numOfPages.value, status.value)
+    appendBooks(newBook)
     localeStore();
 })
-
-function makeBook(tit, aut, nOp, status) {
-    this.title = tit,
-        this.author = aut,
+class MakeBook {
+    constructor(tit, aut, nOp, status) {
+        this.title = tit;
+        this.author = aut;
         this.numOfPages = nOp;
-    this.info = function () {
-        return `The ${this.title} by ${this.author} , ${this.numOfPages} pages, ${this.read()} `
+    }
+    info() {
+        return `The ${this.title} by ${this.author} , ${this.numOfPages} pages, ${!status ? "and not read yet !" : "and read !!"} `
     }
 }
-makeBook.prototype.read = function (e) {
-    if (!status) {
-        return "and not read yet !";
-    }
-    return "and read !!"
-}
-const appendBooks = () => {
-    // let newBooks = JSON.parse(localStorage.getItem("myLibrary"))
-    // console.log(newBooks)
-    // let newBook = newBooks[newBooks.length - 1];
-
-    // Error occurs on the newbook.info()
-    let newBook = myLibrary[myLibrary.length - 1];
+const appendBooks = (newBook) => {
     let html = `<div class="col-sm-4 col-book">
             <div class="card">
                 <img src="./dd64da585bc57cb05e5fd4d8ce873f57.png" alt="" class="img-fluid">
